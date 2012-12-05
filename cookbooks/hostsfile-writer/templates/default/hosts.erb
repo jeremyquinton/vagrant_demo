@@ -1,0 +1,13 @@
+# Do not remove the following line, or various programs
+# that require network functionality will fail.
+127.0.0.1	localhost.localdomain localhost
+::1		localhost6.localdomain6 localhost6
+
+# This file is managed by Chef.  All local changes will be wiped out.
+
+<%= node[:ipaddress] %>	<%= node[:fqdn] %> <%= node[:hostname] %>
+
+<% unless node[:hostsfile].nil? ; node[:hostsfile].each_pair do |host,ip| %>
+<%= ip %>	<%= host %>
+<% end -%>
+<% end -%>

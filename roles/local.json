@@ -1,0 +1,41 @@
+
+{
+	"description": "Basic Webserver with Apache 2, PHP 5.4.8 and Mysql 5.1",
+    "json_class": "Chef::Role",
+    "name": "local",
+    "chef_type": "role",
+    "override_attributes": {
+    	"mysql": {
+    		"server_root_password": "2zq7ha154"
+  		},
+  		"php": {
+		    "pkg_name" : "php54"
+  		},
+  		"apache": {
+    		"listen_ports": [80],
+    		"prefork": {
+      			"startservers": 8,
+      			"minspareservers": 5,
+      			"maxspareservers": 20
+    		}
+    	},
+    	"hostsfile": {
+    		"vagrantdemo.com" : "127.0.0.1"
+  		}
+  	},
+  	
+    "run_list": [
+        "recipe[yum::ius]",
+        "recipe[hostsfile-writer]",
+        "recipe[iptables-writer]",
+        "recipe[mysql::server]",
+        "recipe[apache2]",
+    	"recipe[apache2::mod_deflate]",
+    	"recipe[apache2::mod_rewrite]",
+    	"recipe[apache2::mod_expires]",
+    	"recipe[apache2::mod_headers]",
+    	"recipe[apache2::vagrant_demo]",
+        "recipe[php]",
+        "recipe[php::module_mysql]"
+    ]
+}
