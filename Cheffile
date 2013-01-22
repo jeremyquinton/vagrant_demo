@@ -1,0 +1,8 @@
+apache2
+composer
+hostsfile-writer
+iptables-writer
+mysql
+openssl
+php
+yum
