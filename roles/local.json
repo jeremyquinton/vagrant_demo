@@ -20,7 +20,7 @@
     		}
     	},
     	"hostsfile": {
-    		"vagrantdemo.com" : "127.0.0.1"
+    		"jeremyquinton.com" : "127.0.0.1"
   	},
 	"yum": {
 		"epel_release" : "6-8"
