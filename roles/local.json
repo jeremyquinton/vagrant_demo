@@ -14,9 +14,9 @@
   	"apache": {
     		"listen_ports": [80],
     		"prefork": {
-      		"startservers": 8,
-      		"minspareservers": 5,
-      		"maxspareservers": 20
+      			"startservers": 5,
+      			"minspareservers": 5,
+      			"maxspareservers": 10 
     		}
     	},
     	"hostsfile": {
